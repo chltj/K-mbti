@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd
 from pathlib import Path
+import platform
 import matplotlib.pyplot as plt
 from matplotlib import font_manager, rc
+
 
 from analysis import parse_kakao_chat, analyze_style, estimate_mbti
 from analysis_ml import predict_mbti_ml
@@ -250,4 +252,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
