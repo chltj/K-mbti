@@ -9,6 +9,28 @@ from analysis_ml import predict_mbti_ml
 from emotion_analysis import analyze_emotions
 
 # -----------------------------
+# matplotlib 한글 폰트 설정
+# -----------------------------
+def set_matplotlib_korean_font():
+    system = platform.system()
+
+    try:
+        if system == "Windows":
+            rc("font", family="Malgun Gothic")
+        elif system == "Darwin":
+            rc("font", family="AppleGothic")
+        else:
+            font_path = Path("assets/fonts/NanumGothic.ttf")
+            if font_path.exists():
+                font_name = font_manager.FontProperties(fname=str(font_path)).get_name()
+                rc("font", family=font_name)
+        plt.rcParams["axes.unicode_minus"] = False
+    except Exception as e:
+        print(f"폰트 설정 에러: {e}")
+        
+set_matplotlib_korean_font()
+
+# -----------------------------
 # 기본 설정
 # -----------------------------
 st.set_page_config(
@@ -228,3 +250,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
