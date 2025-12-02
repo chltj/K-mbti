@@ -22,7 +22,6 @@ def parse_kakao_chat(text: str, my_name: str) -> pd.DataFrame:
     )
 
     # 새로운 "복붙형" 카톡 포맷
-    # 예: [유채린] [오후 8:48] 사진
     pattern_bracket = re.compile(
         r"^\[(?P<speaker>.*?)\]\s*\[(?P<time>.*?)\]\s*(?P<message>.*)$"
     )
@@ -122,3 +121,4 @@ def estimate_mbti(df: pd.DataFrame) -> Dict:
         "mbti": mbti,
         "detail_score": score
     }
+
